@@ -26,7 +26,7 @@ componentDidMount(){
 }
 
 readApartment = () => {
-  fetch ("http://localhost:3000/apartments")
+  fetch ("/apartments")
   .then(response => response.json())
   .then(apartmentsArray => this.setState({apartments: apartmentsArray}))
   .catch(errors => console.log ("Apartment read errors: ", errors))

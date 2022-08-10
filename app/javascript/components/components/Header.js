@@ -18,11 +18,37 @@ class Header extends Component {
         <br />
         <h5> Easily find what you'r looking for through our App.  </h5>
         <Nav>
+          {
+            <NavItem>
+              <a href='/' className="nav-link">Home</a>
+            </NavItem>
+          }
+          {
+            <NavItem>
+              <a href='/apartmentindex' className="nav-link">All Apartments</a>
+            </NavItem>
+          }
+          {logged_in &&
+            <NavItem>
+              <a href='/apartmentindex' className="nav-link">My Apartments</a>
+            </NavItem>
+          }
+          {logged_in &&
+            <NavItem>
+              <a href='/apartmentshow' className="nav-link">My Listings</a>
+            </NavItem>
+          }
+          {logged_in &&
+            <NavItem>
+              <a href='/apartmentnew' className="nav-link">New Apartment</a>
+            </NavItem>
+          }
           {logged_in &&
             <NavItem>
               <a href={sign_out_route} className="nav-link">Sign Out</a>
             </NavItem>
           }
+
           {!logged_in &&
             <NavItem>
               <a href={sign_in_route} className="nav-link">Sign In</a>

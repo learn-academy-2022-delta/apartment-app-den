@@ -24,12 +24,12 @@ class Header extends Component {
           }
           {
             <NavItem>
-              <a href='/apartmentindex' className="nav-link">Recent Listings</a>
+              <a href='/apartmentindex' className="nav-link">All Apartments</a>
             </NavItem>
           }
           {logged_in &&
             <NavItem>
-              <a href='/apartmentindex' className="nav-link">Recent Listings</a>
+              <a href='/apartmentindex' className="nav-link">My Apartments</a>
             </NavItem>
           }
           {logged_in &&

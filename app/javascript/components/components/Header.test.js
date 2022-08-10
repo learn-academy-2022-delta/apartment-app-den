@@ -17,7 +17,22 @@ describe("When Header renders", () => {
   it("displays a heading", () => {
     const header = shallow(<Header />)
     const headerHeading = header.find("h1")
-    expect(headerHeading.text()).toEqual("Welcome to SD Luxury Apartments")
+    expect(headerHeading.text()).toEqual(" Welcome to SD Luxury Apartments ")
   })
 })
+
+//output 
+
+// PASS  app/javascript/components/components/Header.test.js
+// ● Console
+
+//   console.log
+//     logged_in: undefined
+
+//     at Header.render (app/javascript/components/components/Header.js:13:13)
+
+//   console.log
+//     current_user: undefined
+
+//     at Header.render (app/javascript/components/components/Header.js:14:13)
 

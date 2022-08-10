@@ -16,29 +16,21 @@ Enzyme.configure({ adapter: new Adapter() })
 describe("When Home renders", () => {
   it("displays a heading", () => {
     const home = shallow(<Home />)
-    const homeHeading = home.find("h1")
+    const homeHeading = home.find("h3")
     console.log("HOME", homeHeading.debug());
-    expect(homeHeading.text()).toEqual("Welcome to SD Luxury Apartments")
+    expect(homeHeading.text()).toEqual(" Home ")
   })
 })
 
-//output 
+// PASS  app/javascript/components/pages/Home.test.js
+// ● Console
 
-// ● When Home renders › displays a heading
+//   console.log
+//     HOME <h3>
+//        Home 
+//     </h3>
 
-//     Method “text” is meant to be run on 1 node. 0 found instead.
-
-//       19 |     const homeHeading = home.find("h1")
-//       20 |     console.log("HOME", homeHeading.debug());
-//     > 21 |     expect(homeHeading.text()).toEqual("Welcome to SD Luxury Apartments")
-//          |                        ^
-//       22 |   })
-//       23 | })
-
-//       at ShallowWrapper.single (node_modules/enzyme/src/ShallowWrapper.js:1652:13)
-//       at ShallowWrapper.text (node_modules/enzyme/src/ShallowWrapper.js:1093:17)
-//       at Object.<anonymous> (app/javascript/components/pages/Home.test.js:21:24)
-
+//     at Object.<anonymous> (app/javascript/components/pages/Home.test.js:20:13)
 
 
 

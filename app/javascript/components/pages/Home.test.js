@@ -15,20 +15,9 @@ describe("When Home renders", () => {
   it("displays a heading", () => {
     const home = shallow(<Home />)
     const homeHeading = home.find("h3")
-    console.log("HOME", homeHeading.debug());
     expect(homeHeading.text()).toEqual(" Home ")
   })
 })
-
-// PASS  app/javascript/components/pages/Home.test.js
-// ● Console
-
-//   console.log
-//     HOME <h3>
-//        Home 
-//     </h3>
-
-//     at Object.<anonymous> (app/javascript/components/pages/Home.test.js:20:13)
 
 
 

@@ -16,7 +16,7 @@ class Header extends Component {
       <>
         <h1> Welcome to SD Luxury Apartments </h1> 
         <br />
-        <h5> Easily find what you'r looking for through our App.  </h5>
+        <h5> Easily find what you're looking for through our App.  </h5>
         <Nav>
           {logged_in &&
             <NavItem>

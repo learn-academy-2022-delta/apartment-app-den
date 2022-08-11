@@ -25,6 +25,10 @@ describe("When ApartmentNew renders", () => {
     const apartmentNewHeading = apartmentNew.find("h1")
     expect(apartmentNewHeading.text()).toEqual("New Listing")
   })
+  it("displays a Form", () => {
+    const apartmentNewForm = apartmentNew.find("Form")
+    expect(apartmentNewForm.length).toEqual(1)
+  })
   it("displays a ten FormGroups", () => {
     const apartmentNewFormGroup = apartmentNew.find("FormGroup")
     expect(apartmentNewFormGroup.length).toEqual(10)

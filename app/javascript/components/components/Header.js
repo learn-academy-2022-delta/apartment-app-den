@@ -16,7 +16,6 @@ class Header extends Component {
       <>
         <h1>Apartment App</h1>
         <Nav>
-
           {
             <NavItem>
               <a href='/' className="nav-link">Home</a>

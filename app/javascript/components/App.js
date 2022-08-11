@@ -33,6 +33,22 @@ readApartment = () => {
   .catch(errors => console.log ("Apartment read errors: ", errors))
 }
 
+
+createApartment = (newListing) => {
+  fetch("http://localhost:3000/apartments", {
+    body: JSON.stringify(newListing),
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method:"POST" 
+  })
+  .then(response => response.json())
+  .then(() => this.readApartment())
+  .catch(errors => console.log("New listing errors: ", errors))
+}
+
+
+
   render() {
     const {
       logged_in,
@@ -42,7 +58,6 @@ readApartment = () => {
       sign_out_route
     } = this.props
     return (
-      
         <Router>
           <Header {...this.props} />
           <Switch>
@@ -53,6 +68,9 @@ readApartment = () => {
             return <ApartmentShow apartment={apartment} />
           }} />
             <Route path="/apartmentindex" render={(props) => < ApartmentIndex apartments={this.state.apartments} />} />
+            <Route path="/apartmentnew" render={()=>{ 
+              return <ApartmentNew createApartment = {this.createApartment} current_user={this.props.current_user} />
+              }} />
             <Route path="/mylistings" render={(props) =>{
               let myListings = this.state.apartments.filter(apartment => apartment.user.id === current_user.id)
               return(

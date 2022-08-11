@@ -13,24 +13,36 @@ import {
   Switch
 } from 'react-router-dom'
 
+
+
+
 class App extends Component {
   render() {
+    const {
+      logged_in,
+      current_user,
+      new_user_route,
+      sign_in_route,
+      sign_out_route
+    } = this.props
+    console.log("logged_in:", logged_in)
+    console.log("current_user:", current_user)
     return (
-      
-        <Router>
-          <Header {...this.props} />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/apartmentindex" component={ApartmentIndex} />
-            <Route path="/apartmentshow" component={ApartmentShow} />
-            <Route path="/apartmentnew" component={ApartmentNew} />
-            <Route path="/apartmentedit" component={ApartmentEdit} />
-            <Route component={NotFound}/>
-          </Switch>
-        </Router>
-        
-        
-  
+
+      <Router>
+        <Header {...this.props} />
+        <Switch>
+          <Route exact path="/" render={(props) => <Home {...this.props}/>} />
+          <Route path="/apartmentindex" component={ApartmentIndex} />
+          <Route path="/apartmentshow" component={ApartmentShow} />
+          <Route path="/apartmentnew" component={ApartmentNew} />
+          <Route path="/apartmentedit" component={ApartmentEdit} />
+          <Route component={NotFound} />
+        </Switch>
+      </Router>
+
+
+
     )
   }
 }

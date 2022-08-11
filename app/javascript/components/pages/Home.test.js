@@ -14,9 +14,14 @@ Enzyme.configure({ adapter: new Adapter() })
 describe("When Home renders", () => {
   it("displays a heading", () => {
     const home = shallow(<Home />)
-    const homeHeading = home.find("h3")
-    expect(homeHeading.text()).toEqual(" Home ")
+    const homeHeading = home.find("h1")
+    expect(homeHeading.text()).toEqual(" Welcome to SD Luxury Apartments ")
   })
+  it("renders four navItem", () => {
+    const home = shallow(<Home />)
+    const renderedNavItem = home.find("NavItem")
+    expect(renderedNavItem.length).toEqual(2)
+})
 })
 
 

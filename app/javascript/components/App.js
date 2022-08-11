@@ -41,8 +41,8 @@ readApartment = () => {
       sign_in_route,
       sign_out_route
     } = this.props
-    console.log(this.state.apartments)
     return (
+<<<<<<< HEAD
       
         <Router>
           <Header {...this.props} />
@@ -63,6 +63,22 @@ readApartment = () => {
             <Route component={NotFound}/>
           </Switch>
         </Router>
+=======
+      <Router>
+        <Header {...this.props} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/apartmentindex" render={(props) => < ApartmentIndex apartments={this.state.apartments} />} />
+          <Route path="/mylistings" render={(props) =>{
+            let myListings = this.state.apartments.filter(apartment => apartment.user.id === current_user.id)
+            return(<ProtectedApartmentIndex apartments={myListings} />)}} />
+          <Route path="/apartmentshow" component={ApartmentShow} />
+          <Route path="/apartmentnew" component={ApartmentNew} />
+          <Route path="/apartmentedit" component={ApartmentEdit} />
+          <Route component={NotFound}/>
+        </Switch>
+      </Router>
+>>>>>>> 11ce290 (ProtectedIndex - requested changes have been made)
         
         
   

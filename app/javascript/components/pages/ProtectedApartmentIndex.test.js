@@ -27,7 +27,7 @@ describe("When ProtectedApartmentIndex renders", () => {
     let renderedProtectedApartmentIndex;
   
     beforeEach(() => {
-      renderedProtectedApartmentIndex = shallow(<ProtectedApartmentIndex {...props} />);
+      renderedProtectedApartmentIndex = shallow(<ProtectedApartmentIndex/>);
     });
   
     it("displays a heading", () => {

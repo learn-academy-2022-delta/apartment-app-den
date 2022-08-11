@@ -54,6 +54,10 @@ readApartment = () => {
             return <ApartmentShow apartment={apartment} />
           }} />
             <Route path="/apartmentindex" render={(props) => < ApartmentIndex apartments={this.state.apartments} />} />
+            <Route path="/mylistings" render={(props) =>{
+              let myListings = this.state.apartments.filter(apartment => apartment.user.id === current_user.id)
+              return(
+                <ProtectedApartmentIndex apartments={myListings} />)}} />
             <Route path="/apartmentnew" component={ApartmentNew} />
             <Route path="/apartmentedit" component={ApartmentEdit} />
             <Route component={NotFound}/>

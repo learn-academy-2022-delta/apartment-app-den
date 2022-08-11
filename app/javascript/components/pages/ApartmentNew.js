@@ -17,7 +17,7 @@ export default class ApartmentNew extends Component {
         bathrooms: "",
         pets: "",
         image: "",
-        user_id: this.props.current_user
+        user_id: this.props.current_user.id
       },
       submitted: false
     }
@@ -66,10 +66,10 @@ export default class ApartmentNew extends Component {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="manger">Manager</Label>
+            <Label for="manager">Manager</Label>
             <Input 
               type="text" 
-              name="Manager"
+              name="manager"
               onChange={this.handleChange}
               value={this.state.newListing.manager}
             />

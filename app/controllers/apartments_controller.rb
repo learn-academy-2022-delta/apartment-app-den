@@ -9,7 +9,7 @@ class ApartmentsController < ApplicationController
         if apartment.valid?
             render json: apartment
         else 
-            render json: a[apartment.errors, status: 422]
+            render json: apartment.errors, status: 422
         end
     end
 

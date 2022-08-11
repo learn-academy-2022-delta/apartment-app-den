@@ -3,6 +3,10 @@ require 'rails_helper'
 
 
 RSpec.describe Apartment, type: :model do
+
+  it 'has to be real' do
+    expect{ Apartment.new }.to_not raise_error
+
   it 'has to exist' do 
     user = User.where(email: 'MsTina@test.com').first_or_create(password: '1122abab', password_confirmation: '1122abab')
 

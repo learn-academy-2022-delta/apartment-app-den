@@ -14,6 +14,9 @@ import {
 } from 'react-router-dom'
 import ProtectedApartmentIndex from './pages/ProtectedApartmentIndex'
 
+
+
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -57,11 +60,14 @@ createApartment = (newListing) => {
       sign_in_route,
       sign_out_route
     } = this.props
+
+    console.log("logged_in:", logged_in)
+    console.log("current_user:", current_user)
     return (
         <Router>
           <Header {...this.props} />
           <Switch>
-            <Route exact path="/" component={Home} />
+           <Route exact path="/" render={(props) => <Home {...this.props}/>} />
           <Route path="/apartmentshow/:id" render={(props) => {
             let id = +props.match.params.id
             let apartment = this.state.apartments.find(apartment => apartment.id === id)
@@ -81,8 +87,6 @@ createApartment = (newListing) => {
           </Switch>
         </Router>
         
-        
-  
     )
   }
 }

@@ -10,4 +10,12 @@ describe("When Header renders", () => {
     const headerHeading = header.find("h1")
     expect(headerHeading.text()).toEqual("Apartment App")
   })
+
+  it("renders three navItem", () => {
+    const header = shallow(<Header />)
+    const renderedNavItem = header.find("NavItem")
+    expect(renderedNavItem.length).toEqual(4)
+  })
 })
+
+

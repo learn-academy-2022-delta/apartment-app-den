@@ -22,9 +22,9 @@ class App extends Component {
     }
   }
 
-componentDidMount(){
-  this.readAparment()
-}
+  componentDidMount() {
+    this.readApartment()
+  }
 
 readApartment = () => {
   fetch ("/apartments")
@@ -32,7 +32,6 @@ readApartment = () => {
   .then(apartmentsArray => this.setState({apartments: apartmentsArray}))
   .catch(errors => console.log ("Apartment read errors: ", errors))
 }
-
 
   render() {
     const {
@@ -49,12 +48,12 @@ readApartment = () => {
           <Header {...this.props} />
           <Switch>
             <Route exact path="/" component={Home} />
+          <Route path="/apartmentshow/:id" render={(props) => {
+            let id = +props.match.params.id
+            let apartment = this.state.apartments.find(apartment => apartment.id === id)
+            return <ApartmentShow apartment={apartment} />
+          }} />
             <Route path="/apartmentindex" render={(props) => < ApartmentIndex apartments={this.state.apartments} />} />
-            <Route path="/mylistings" render={(props) =>{
-              let myListings = this.state.apartments.filter(apartment => apartment.user.id === current_user.id)
-              return(
-                <ProtectedApartmentIndex apartments={myListings} />)}} />
-            <Route path="/apartmentshow" component={ApartmentShow} />
             <Route path="/apartmentnew" component={ApartmentNew} />
             <Route path="/apartmentedit" component={ApartmentEdit} />
             <Route component={NotFound}/>

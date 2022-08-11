@@ -33,7 +33,7 @@ readApartment = () => {
 }
 
 createApartment = (newListing) => {
-  fetch("/apartments", {
+  fetch("http://localhost:3000/apartments", {
     body: JSON.stringify(newListing),
     headers: {
       "Content-Type": "application/json"
@@ -52,8 +52,9 @@ createApartment = (newListing) => {
       current_user,
       new_user_route,
       sign_in_route,
-      sign_out_route
+      sign_out_route,
     } = this.props
+    console.log(this.props)
     return (
         <Router>
           <Header {...this.props} />

@@ -30,7 +30,7 @@ export default class ApartmentNew extends Component {
   }
 
   handleSubmit = () => {
-    this.props.createNew(this.state.newListing)
+    this.props.createApartment(this.state.newListing)
     this.setState({ submitted: true})
   }
   render() {

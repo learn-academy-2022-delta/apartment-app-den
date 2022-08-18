@@ -7,12 +7,13 @@ import ApartmentShow from './pages/ApartmentShow'
 import ApartmentNew from './pages/ApartmentNew'
 import ApartmentEdit from './pages/ApartmentEdit'
 import NotFound from './pages/NotFound'
+import ProtectedApartmentIndex from './pages/ProtectedApartmentIndex'
 import {
   BrowserRouter as Router,
   Route,
   Switch
 } from 'react-router-dom'
-import ProtectedApartmentIndex from './pages/ProtectedApartmentIndex'
+
 
 class App extends Component {
   constructor(props) {
@@ -33,6 +34,18 @@ readApartment = () => {
   .catch(errors => console.log ("Apartment read errors: ", errors))
 }
 
+deleteApartment = (apartmentId) => {
+  fetch(`/apartments/${apartmentId}`, {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "DELETE"
+  })
+  .then(response => response.json())
+  .then(() => this.readApartment())
+  .catch(errors => console.log ("Apartment delete errors:", errors))
+}
+
   render() {
     const {
       logged_in,
@@ -47,16 +60,19 @@ readApartment = () => {
           <Header {...this.props} />
           <Switch>
             <Route exact path="/" component={Home} />
-          <Route path="/apartmentshow/:id" render={(props) => {
-            let id = +props.match.params.id
-            let apartment = this.state.apartments.find(apartment => apartment.id === id)
-            return <ApartmentShow apartment={apartment} />
-          }} />
             <Route path="/apartmentindex" render={(props) => < ApartmentIndex apartments={this.state.apartments} />} />
             <Route path="/mylistings" render={(props) =>{
-              let myListings = this.state.apartments.filter(apartment => apartment.user.id === current_user.id)
+              let myListings = this.state.apartments.filter(apartment => apartment.user_id === current_user.id)
               return(
-                <ProtectedApartmentIndex apartments={myListings} />)}} />
+              <ProtectedApartmentIndex 
+              apartments={myListings} 
+              />
+              )
+              }} />
+            <Route path="/apartmentshow/:id" render={(props) => {
+              let id = +props.match.params.id
+              let apartment = this.state.apartments.find(apartment => apartment.id === id)
+              return <ApartmentShow apartment={apartment} {...this.props} deleteApartment={this.deleteApartment}/>}} />
             <Route path="/apartmentnew" component={ApartmentNew} />
             <Route path="/apartmentedit" component={ApartmentEdit} />
             <Route component={NotFound}/>

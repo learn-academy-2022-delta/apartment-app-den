@@ -29,12 +29,7 @@ class Header extends Component {
           }
           {logged_in &&
             <NavItem>
-              <a href='/apartmentindex' className="nav-link">My Apartments</a>
-            </NavItem>
-          }
-          {logged_in &&
-            <NavItem>
-              <a href='/apartmentshow' className="nav-link">My Listings</a>
+              <a href='/mylistings' className="nav-link">My Listings</a>
             </NavItem>
           }
           {logged_in &&

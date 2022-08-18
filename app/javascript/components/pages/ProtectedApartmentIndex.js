@@ -20,7 +20,7 @@ class ProtectedApartmentIndex extends Component {
                         <CardBody>
                             <CardTitle>{apartment.price} /month </CardTitle>
                             <CardSubtitle>{apartment.street} {apartment.city} </CardSubtitle>
-                            <CardSubtitle>{apartment.bedrooms} Bedroom, {apartment.bathroom} Bathroom</CardSubtitle>
+                            <CardSubtitle>{apartment.bedrooms} Bedroom, {apartment.bathrooms} Bathroom</CardSubtitle>
                             <Button>More Details</Button>
                         </CardBody>
                     </Card>
